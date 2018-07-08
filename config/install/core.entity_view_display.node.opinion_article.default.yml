@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.opinion_article.body
     - field.field.node.opinion_article.field_author_profile
     - field.field.node.opinion_article.field_comments
-    - field.field.node.opinion_article.field_image
+    - field.field.node.opinion_article.field_media
     - field.field.node.opinion_article.field_meta_tags
     - field.field.node.opinion_article.field_section
     - field.field.node.opinion_article.field_tags
@@ -33,12 +33,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_author_profile:
-    weight: 108
+    weight: 6
     label: above
     settings:
       link: true
@@ -46,7 +46,7 @@ content:
     type: entity_reference_label
     region: content
   field_comments:
-    weight: 107
+    weight: 5
     label: above
     settings:
       view_mode: default
@@ -55,14 +55,14 @@ content:
     type: comment_default
     region: content
   field_meta_tags:
-    weight: 105
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
     region: content
   field_section:
-    weight: 109
+    weight: 7
     label: above
     settings:
       link: true
@@ -70,7 +70,7 @@ content:
     type: entity_reference_label
     region: content
   field_tags:
-    weight: 104
+    weight: 2
     label: above
     settings:
       link: true
@@ -78,17 +78,17 @@ content:
     type: entity_reference_label
     region: content
   field_yoast_seo:
-    weight: 106
+    weight: 4
     label: above
     settings: {  }
     third_party_settings: {  }
     type: yoastseo_formatter
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_image: true
+  field_media: true
   langcode: true

@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.opinion_article.body
     - field.field.node.opinion_article.field_author_profile
     - field.field.node.opinion_article.field_comments
-    - field.field.node.opinion_article.field_image
+    - field.field.node.opinion_article.field_media
     - field.field.node.opinion_article.field_meta_tags
     - field.field.node.opinion_article.field_section
     - field.field.node.opinion_article.field_tags
@@ -16,6 +16,7 @@ dependencies:
     - ds
     - panelizer
     - smart_trim
+    - taxonomy
     - user
 third_party_settings:
   ds:
@@ -35,26 +36,27 @@ third_party_settings:
           layout_class: {  }
     regions:
       main:
-        - field_image
-        - node_title
         - field_section
+        - field_image
+        - field_media
+        - node_title
         - node_post_date
         - body
     fields:
-      node_post_date:
-        plugin_id: node_post_date
-        weight: 3
-        label: hidden
-        formatter: ds_post_date_long
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 3
         label: hidden
         formatter: default
         settings:
           link: true
           wrapper: h3
           class: ''
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 4
+        label: hidden
+        formatter: ds_post_date_long
   panelizer:
     enable: false
     custom: false
@@ -68,33 +70,48 @@ content:
   body:
     label: hidden
     type: smart_trim
-    weight: 4
+    weight: 5
     settings:
-      trim_length: '30'
+      trim_length: 30
       trim_type: words
       trim_suffix: ' ...'
-      more_link: '0'
+      more_link: false
       more_text: More
       summary_handler: full
       trim_options:
-        text: text
+        text: true
       more_class: more-link
+      wrap_output: false
+      wrap_class: trimmed
     third_party_settings: {  }
     region: main
-  field_image:
-    weight: 0
+  field_media:
+    type: entity_reference_entity_view
+    weight: 2
+    region: main
     label: hidden
     settings:
       view_mode: s04_standard
       link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_section:
+    type: entity_reference_rss_category
+    weight: 0
     region: main
+    label: above
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_author_profile: true
   field_comments: true
   field_meta_tags: true
-  field_section: true
   field_tags: true
   field_yoast_seo: true
   langcode: true

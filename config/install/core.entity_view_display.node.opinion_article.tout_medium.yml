@@ -4,13 +4,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.tout_medium
     - field.field.node.opinion_article.body
-    - field.field.node.opinion_article.field_author_profile
-    - field.field.node.opinion_article.field_comments
     - field.field.node.opinion_article.field_image
-    - field.field.node.opinion_article.field_meta_tags
-    - field.field.node.opinion_article.field_section
-    - field.field.node.opinion_article.field_tags
-    - field.field.node.opinion_article.field_yoast_seo
+    - field.field.node.opinion_article.field_video
+    - field.field.node.opinion_article.field_media
     - node.type.opinion_article
   module:
     - ds
@@ -36,12 +32,14 @@ third_party_settings:
     regions:
       main:
         - field_image
+        - field_video
+        - field_media
         - node_title
         - group_tout_content
     fields:
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 5
         label: hidden
         formatter: default
         settings:
@@ -56,10 +54,9 @@ third_party_settings:
   field_group:
     group_tout_content:
       children:
-        - field_image
         - node_title
       parent_name: ''
-      weight: 1
+      weight: 20
       format_type: html_element
       format_settings:
         id: ''
@@ -85,13 +82,25 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: main
+  field_video:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: s04_standard
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: main
+  field_media:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: s04_standard
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: main
 hidden:
   body: true
-  field_author_profile: true
-  field_comments: true
-  field_meta_tags: true
-  field_section: true
-  field_tags: true
-  field_yoast_seo: true
   langcode: true
   links: true

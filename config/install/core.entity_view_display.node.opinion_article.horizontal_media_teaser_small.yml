@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.opinion_article.body
     - field.field.node.opinion_article.field_author_profile
     - field.field.node.opinion_article.field_comments
-    - field.field.node.opinion_article.field_image
+    - field.field.node.opinion_article.field_media
     - field.field.node.opinion_article.field_meta_tags
     - field.field.node.opinion_article.field_section
     - field.field.node.opinion_article.field_tags
@@ -36,12 +36,13 @@ third_party_settings:
     regions:
       left:
         - field_image
+        - field_media
       right:
         - node_title
     fields:
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 2
         label: hidden
         formatter: default
         settings:
@@ -58,15 +59,22 @@ targetEntityType: node
 bundle: opinion_article
 mode: horizontal_media_teaser_small
 content:
-  field_image:
+  field_media:
     type: entity_reference_entity_view
-    weight: 0
+    weight: 1
+    region: left
     label: hidden
     settings:
       view_mode: s03_standard
       link: false
-    third_party_settings: {  }
-    region: left
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
   body: true
   field_author_profile: true

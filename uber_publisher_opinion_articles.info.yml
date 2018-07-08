@@ -25,6 +25,7 @@ dependencies:
   - path
   - pathauto
   - rabbit_hole
+  - simple_sitemap
   - smart_trim
   - taxonomy
   - text
@@ -33,6 +34,7 @@ dependencies:
   - uber_publisher_author_profile
   - uber_publisher_core
   - user
+  - varbase_core
   - varbase_media
   - varbase_seo
   - views

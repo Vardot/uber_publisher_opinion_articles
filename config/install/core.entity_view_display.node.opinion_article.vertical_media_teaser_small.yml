@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.opinion_article.body
     - field.field.node.opinion_article.field_author_profile
     - field.field.node.opinion_article.field_comments
-    - field.field.node.opinion_article.field_image
+    - field.field.node.opinion_article.field_media
     - field.field.node.opinion_article.field_meta_tags
     - field.field.node.opinion_article.field_section
     - field.field.node.opinion_article.field_tags
@@ -36,25 +36,26 @@ third_party_settings:
     regions:
       main:
         - field_image
+        - field_media
         - node_title
         - field_section
         - node_post_date
         - body
     fields:
-      node_post_date:
-        plugin_id: node_post_date
-        weight: 3
-        label: hidden
-        formatter: ds_post_date_short
       node_title:
         plugin_id: node_title
-        weight: 1
+        weight: 2
         label: hidden
         formatter: default
         settings:
           link: true
           wrapper: h3
           class: ''
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 4
+        label: hidden
+        formatter: ds_post_date_short
   panelizer:
     enable: false
     custom: false
@@ -68,31 +69,40 @@ content:
   body:
     label: hidden
     type: smart_trim
-    weight: 4
+    weight: 5
     settings:
-      trim_length: '20'
+      trim_length: 20
       trim_type: words
       trim_suffix: ...
-      more_link: '0'
+      more_link: false
       more_text: More
       summary_handler: full
       trim_options:
-        text: text
+        text: true
       more_class: more-link
+      wrap_output: false
+      wrap_class: trimmed
     third_party_settings: {  }
     region: main
-  field_image:
-    weight: 0
+  field_media:
+    type: entity_reference_entity_view
+    weight: 1
+    region: main
     label: hidden
     settings:
       view_mode: s03_standard
       link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: main
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
   field_section:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: main
     label: hidden
     settings:
