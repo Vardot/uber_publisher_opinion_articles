@@ -36,7 +36,6 @@ third_party_settings:
           layout_class: {  }
     regions:
       left:
-        - field_image
         - field_media
       right:
         - node_title

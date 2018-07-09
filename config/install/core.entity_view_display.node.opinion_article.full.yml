@@ -43,7 +43,6 @@ third_party_settings:
     regions:
       main:
         - field_section
-        - field_image
         - field_media
         - body
         - field_tags
