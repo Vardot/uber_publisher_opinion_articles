@@ -37,7 +37,6 @@ third_party_settings:
     regions:
       main:
         - field_section
-        - field_image
         - field_media
         - node_title
         - node_post_date

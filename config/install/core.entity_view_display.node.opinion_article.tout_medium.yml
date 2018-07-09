@@ -4,8 +4,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.tout_medium
     - field.field.node.opinion_article.body
-    - field.field.node.opinion_article.field_image
-    - field.field.node.opinion_article.field_video
     - field.field.node.opinion_article.field_media
     - node.type.opinion_article
   module:
