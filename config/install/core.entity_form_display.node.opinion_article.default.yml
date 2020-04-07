@@ -28,17 +28,64 @@ third_party_settings:
       children:
         - field_section
         - field_tags
-      parent_name: ''
-      weight: 5
-      format_type: details
+      parent_name: group_tabs
+      weight: 21
+      format_type: tab
       format_settings:
-        label: Categories
         open: true
         required_fields: true
         id: ''
         classes: ''
+        formatter: closed
+        description: ''
       label: Categories
       region: content
+    group_tabs:
+      children:
+        - group_basic_info
+        - group_categories
+        - group_media
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Tabs
+    group_basic_info:
+      children:
+        - title
+        - field_author_profile
+        - body
+      parent_name: group_tabs
+      weight: 20
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: 'Basic info'
+    group_media:
+      children:
+        - field_media
+      parent_name: group_tabs
+      weight: 22
+      format_type: tab
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        formatter: closed
+        required_fields: true
+      label: Media
+_core:
+  default_config_hash: s14ip5mzCzcTmRu3eNEmoXgAnMazjVoEy-36p0T28G8
 id: node.opinion_article.default
 targetEntityType: node
 bundle: opinion_article
@@ -46,30 +93,32 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 2
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
     region: content
   created:
     type: datetime_timestamp
-    weight: 7
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_author_profile:
-    weight: 3
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
   field_comments:
-    weight: 11
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     type: comment_default
@@ -90,8 +139,9 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_meta_tags:
-    weight: 9
-    settings: {  }
+    weight: 6
+    settings:
+      sidebar: true
     third_party_settings: {  }
     type: metatag_firehose
     region: content
@@ -119,14 +169,14 @@ content:
       new_terms: '1'
       match_operator: CONTAINS
       autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
       size: 60
       selection_handler: default
+      no_empty_message: 'No terms could be found. Please type in order to add a new term.'
     third_party_settings: {  }
     type: autocomplete_deluxe
     region: content
   field_yoast_seo:
-    weight: 10
+    weight: 7
     settings:
       body: body
     third_party_settings: {  }
@@ -140,7 +190,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -148,7 +198,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 10
     region: content
     third_party_settings: {  }
   title:
@@ -166,15 +216,16 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 12
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

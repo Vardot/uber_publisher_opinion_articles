@@ -1,6 +1,8 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.opinion_article
 id: node_type_opinion_article
 action: display_page
 allow_override: 0
