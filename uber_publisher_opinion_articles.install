@@ -5,9 +5,9 @@
  * Install, update and uninstall functions for the uber_publisher_opinion_articles module.
  */
 
- /**
-  * Implements hook_install().
-  */
+/**
+ * Implements hook_install().
+ */
 function uber_publisher_opinion_articles_install() {
   // Add opinion_article_listing_per_user view to Author page.
   $config_factory = \Drupal::configFactory();
@@ -26,8 +26,8 @@ function uber_publisher_opinion_articles_install() {
   ];
   $config_factory->getEditable('page_manager.page_variant.node_view-panels_variant-0')->set('variant_settings.blocks', $blocks)->save();
 
-  $moduleHandler = \Drupal::service ( 'module_handler' );
-  if ($moduleHandler->moduleExists ('uber_publisher_social_post')) {
-    $config_factory->getEditable('core.entity_form_display.node.opinion_article.default')->set('content.field_post_to_twitter', ['type' => 'boolean_checkbox', 'weight' => '11', 'region' => 'content', 'settings' => ['display_label' => 'true'], 'third_party_settings' => []] )->save();
+  $moduleHandler = \Drupal::service('module_handler');
+  if ($moduleHandler->moduleExists('uber_publisher_social_post')) {
+    $config_factory->getEditable('core.entity_form_display.node.opinion_article.default')->set('content.field_post_to_twitter', ['type' => 'boolean_checkbox', 'weight' => '11', 'region' => 'content', 'settings' => ['display_label' => 'true'], 'third_party_settings' => []])->save();
   }
 }
