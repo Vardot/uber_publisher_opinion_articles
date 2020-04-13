@@ -36,4 +36,10 @@ function uber_publisher_opinion_articles_install() {
   $config_array['type_settings']['entity_types']['node'][] = 'opinion_article';
   $config->set('type_settings', $config_array['type_settings']);
   $config->save();
+
+  $config = $config_factory->getEditable('roleassign.settings');
+  $config_array = $config->get();
+  $config_array['roleassign_roles']['opinion_writer'] = 'opinion_writer';
+  $config->set('roleassign_roles', $config_array['roleassign_roles']);
+  $config->save();
 }
