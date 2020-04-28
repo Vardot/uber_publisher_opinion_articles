@@ -3,9 +3,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.article_comments.default
-    - field.field.node.opinion_article.body
     - field.field.node.opinion_article.field_author_profile
     - field.field.node.opinion_article.field_comments
+    - field.field.node.opinion_article.field_lp_paragraphs
     - field.field.node.opinion_article.field_media
     - field.field.node.opinion_article.field_meta_tags
     - field.field.node.opinion_article.field_section
@@ -14,20 +14,17 @@ dependencies:
     - node.type.opinion_article
   module:
     - comment
+    - entity_reference_revisions
     - metatag
-    - text
     - user
     - yoast_seo
-third_party_settings:
 id: node.opinion_article.default
 targetEntityType: node
 bundle: opinion_article
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 1
+  content_moderation_control:
+    weight: -20
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -47,6 +44,15 @@ content:
       pager_id: 0
     third_party_settings: {  }
     type: comment_default
+    region: content
+  field_lp_paragraphs:
+    weight: 8
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
     region: content
   field_meta_tags:
     weight: 3
