@@ -36,6 +36,7 @@ third_party_settings:
         - field_author_profile
         - field_lp_paragraphs
         - field_tags
+        - field_media
       parent_name: ''
       weight: 0
       format_type: fieldset
@@ -47,20 +48,6 @@ third_party_settings:
         formatter: closed
         required_fields: true
       label: 'Basic info'
-    group_media:
-      children:
-        - field_media
-      parent_name: ''
-      weight: 1
-      format_type: fieldset
-      region: content
-      format_settings:
-        id: ''
-        classes: ''
-        description: ''
-        formatter: closed
-        required_fields: true
-      label: Media
 id: node.opinion_article.default
 targetEntityType: node
 bundle: opinion_article
@@ -113,7 +100,7 @@ content:
     type: paragraphs_previewer
     region: content
   field_media:
-    weight: 2
+    weight: 8
     settings:
       media_types:
         - image

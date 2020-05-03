@@ -46,8 +46,6 @@ third_party_settings:
           link: true
           wrapper: h3
           class: ''
-_core:
-  default_config_hash: EV6E04okBw8IWXtVC-8uFhCcQ4ObV6aEQkHg8JBT7RM
 id: node.opinion_article.text_teaser_large
 targetEntityType: node
 bundle: opinion_article
