@@ -23,19 +23,20 @@ third_party_settings:
       disable_css: false
       entity_classes: all_classes
       settings:
+        label: ''
         wrappers:
           main: div
         outer_wrapper: article
         attributes: ''
-        link_attribute: ''
+        link_attribute: content
         link_custom: ''
         classes:
           layout_class: {  }
     regions:
       main:
         - field_media
+        - field_section
         - node_title
-        - body
     fields:
       node_title:
         plugin_id: node_title
@@ -46,19 +47,20 @@ third_party_settings:
           link: true
           wrapper: h3
           class: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 id: node.opinion_article.vertical_media_teaser_large
 targetEntityType: node
 bundle: opinion_article
 mode: vertical_media_teaser_large
 content:
-  content_moderation_control:
-    weight: -20
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_media:
     type: entity_reference_entity_view
-    weight: 1
+    weight: 0
     region: main
     label: hidden
     settings:
@@ -72,12 +74,27 @@ content:
             lb: ''
             lb-col: false
             classes: {  }
+  field_section:
+    type: entity_reference_label
+    weight: 1
+    region: main
+    label: hidden
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
 hidden:
+  content_moderation_control: true
   field_author_profile: true
   field_comments: true
   field_lp_paragraphs: true
   field_meta_tags: true
-  field_section: true
   field_tags: true
   field_yoast_seo: true
   langcode: true
