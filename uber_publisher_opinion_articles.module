@@ -10,3 +10,19 @@
 function uber_publisher_opinion_articles_page_attachments(array &$attachments) {
   $attachments['#attached']['library'][] = 'uber_publisher_opinion_articles/opinion.lib';
 }
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function uber_publisher_opinion_articles_views_query_alter($view, $query) {
+  if ($view->id() == 'opinion_article' && $view->current_display == 'from_the_publisher') {
+    if (isset($query->where[0]['conditions'][0]['value'][':node__field_author_profile_field_author_profile_target_id'])) {
+      $current_route = \Drupal::routeMatch();
+      $node = $current_route->getParameters()->get('node');
+
+      if (!empty($node)) {
+        $query->where[0]['conditions'][0]['value'][':node__field_author_profile_field_author_profile_target_id'] = $node->field_author_profile->target_id;
+      }
+    }
+  }
+}
