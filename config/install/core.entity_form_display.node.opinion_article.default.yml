@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.opinion_article.field_tags
     - field.field.node.opinion_article.field_yoast_seo
     - node.type.opinion_article
-    - workflows.workflow.varbase_basic_workflow
+    - workflows.workflow.varbase_editorial_workflow
   module:
     - advanced_text_formatter
     - autocomplete_deluxe
