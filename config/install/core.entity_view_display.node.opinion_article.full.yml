@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.opinion_article.field_tags
     - field.field.node.opinion_article.field_yoast_seo
     - node.type.opinion_article
-    - views.view.articles
     - views.view.opinion_article
   module:
     - bootstrap_layouts
@@ -101,7 +100,7 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
             additional: {  }
-            weight: 0
+            weight: 1
           cbbd50a3-142b-431b-ad49-ec1d60c31fc8:
             uuid: cbbd50a3-142b-431b-ad49-ec1d60c31fc8
             region: top
@@ -145,7 +144,7 @@ third_party_settings:
                 entity: layout_builder.entity
                 view_mode: view_mode
             additional: {  }
-            weight: 1
+            weight: 2
           409ef665-813a-49f0-93a4-e881e24dc2f0:
             uuid: 409ef665-813a-49f0-93a4-e881e24dc2f0
             region: left
@@ -225,19 +224,6 @@ third_party_settings:
                 view_mode: view_mode
             additional: {  }
             weight: 1
-          ff81bd34-7ed8-4e51-bc92-321c3dd87c51:
-            uuid: ff81bd34-7ed8-4e51-bc92-321c3dd87c51
-            region: right
-            configuration:
-              id: 'views_block:articles-most_viewed_articles'
-              label: Recommended
-              provider: views
-              label_display: visible
-              views_label: Recommended
-              items_per_page: '3'
-              context_mapping: {  }
-            additional: {  }
-            weight: 0
           0614e9a5-6195-4ab7-a98a-498d0c968d29:
             uuid: 0614e9a5-6195-4ab7-a98a-498d0c968d29
             region: bottom
@@ -250,7 +236,7 @@ third_party_settings:
                 label: above
                 type: entity_reference_entity_view
                 settings:
-                  view_mode: default
+                  view_mode: token
                 third_party_settings:
                   ds:
                     ds_limit: ''
@@ -292,6 +278,32 @@ third_party_settings:
               context_mapping: {  }
             additional: {  }
             weight: 1
+          fcede7f1-0c88-4132-8ebc-76722a6b940d:
+            uuid: fcede7f1-0c88-4132-8ebc-76722a6b940d
+            region: right
+            configuration:
+              id: 'views_block:opinion_article-opinion_articles_most_viewed'
+              label: 'Most Recommended'
+              provider: views
+              label_display: visible
+              views_label: 'Most Recommended'
+              items_per_page: none
+              exposed: {  }
+              context_mapping: {  }
+            additional: {  }
+            weight: 0
+          9b6bf7de-343e-453b-9163-8db539af6d41:
+            uuid: 9b6bf7de-343e-453b-9163-8db539af6d41
+            region: top
+            configuration:
+              id: 'extra_field_block:node:opinion_article:content_moderation_control'
+              label: 'Moderation control'
+              provider: layout_builder
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 0
         third_party_settings: {  }
       -
         layout_id: layout_onecol
