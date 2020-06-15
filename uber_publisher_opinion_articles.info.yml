@@ -1,7 +1,6 @@
 name: 'Uber Publisher Opinion Articles'
 description: 'Uber Publisher opinion article content type with its dependents.'
 type: module
-core: 8.x
 dependencies:
   - uber_publisher_core
   - uber_publisher_amp
@@ -12,7 +11,7 @@ dependencies:
   - varbase_seo
   - views_exclude_previous
   - views_infinite_scroll
-version: 8.x-6.x-dev
 package: 'Uber Publisher'
+core_version_requirement: ^8 || ^9
 'interface translation project': uber_publisher_opinion_articles
 'interface translation server pattern': modules/contrib/uber_publisher_opinion_articles/translations/%language.po
