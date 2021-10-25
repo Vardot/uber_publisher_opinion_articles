@@ -1,17 +1,18 @@
 name: 'Uber Publisher Opinion Articles'
 description: 'Uber Publisher opinion article content type with its dependents.'
 type: module
-dependencies:
-  - uber_publisher_core
-  - uber_publisher_amp
-  - uber_publisher_article
-  - uber_publisher_author_profile
-  - varbase_core
-  - varbase_media
-  - varbase_seo
-  - views_exclude_previous
-  - views_infinite_scroll
 package: 'Uber Publisher'
 core_version_requirement: ^8 || ^9
+dependencies:
+  - varbase_core:varbase_core
+  - varbase_media:varbase_media
+  - varbase_seo:varbase_seo
+  - varbase_workflow:varbase_workflow
+  - uber_publisher_core:uber_publisher_core
+  - uber_publisher_core:uber_publisher_amp
+  - uber_publisher_core:uber_publisher_article
+  - uber_publisher_author_profile:uber_publisher_author_profile
+  - views_exclude_previous:views_exclude_previous
+  - views_infinite_scroll:views_infinite_scroll
 'interface translation project': uber_publisher_opinion_articles
 'interface translation server pattern': modules/contrib/uber_publisher_opinion_articles/translations/%language.po
